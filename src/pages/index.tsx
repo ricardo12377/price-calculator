@@ -3,8 +3,6 @@ import Head from 'next/head';
 import { themeState } from 'store';
 
 export default function Home() {
-  const theme = themeState(state => state.dark);
-
   return (
     <>
       <Head>

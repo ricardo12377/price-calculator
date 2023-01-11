@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { FC } from 'react';
 
 export interface ButtonPropsForm {
@@ -6,13 +7,19 @@ export interface ButtonPropsForm {
 
 export interface ButtonPropsHome {
   text: string;
-  onClick?: () => void;
+  path: string;
 }
 
 type Props = ButtonPropsHome & ButtonPropsForm;
 
 export const DefaultButton: FC<Props> = props => {
-  const { text } = props;
+  const { text, path } = props;
 
-  return <button className="text-indigo-100 bg-primary">{text}</button>;
+  return (
+    <Link href={path}>
+      <button className="text-third text-white bg-primary w-48 h-12 rounded-lg mt-4 ml-400">
+        {text}
+      </button>
+    </Link>
+  );
 };
