@@ -1,12 +1,13 @@
 import create from 'zustand';
 
 export interface StateProps {
-  dark: boolean;
+  result: number;
+  calculateResult: (value: number) => void;
 }
 
-const themeState = create<StateProps>(set => ({
-  dark: false,
-  changeTheme: () => set(state => ({ dark: !state.dark }))
+const storeProvider = create<StateProps>(set => ({
+  result: 0,
+  calculateResult: (value: number) => set(() => ({ result: value }))
 }));
 
-export { themeState };
+export { storeProvider };

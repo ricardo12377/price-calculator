@@ -1,6 +1,5 @@
 import { HomePage } from 'containers/home';
 import Head from 'next/head';
-import { themeState } from 'store';
 
 export default function Home() {
   return (

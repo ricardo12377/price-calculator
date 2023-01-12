@@ -7,7 +7,9 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
-    extend: {},
+    extend: {
+      formHeight: '1000px'
+    },
     colors: {
       primary: 'rgb(157 23 77)',
       secondary: 'rgb(255 228 230)',
