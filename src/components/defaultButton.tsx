@@ -17,7 +17,7 @@ export const DefaultButton: FC<Props> = props => {
 
   return (
     <Link href={path}>
-      <button className="text-third text-white bg-primary w-48 h-12 rounded-lg mt-4 ml-400">
+      <button className="text-third text-primary bg-secondary w-48 h-12 rounded-lg mt-4 ml-400 max-[400px]:w-40">
         {text}
       </button>
     </Link>

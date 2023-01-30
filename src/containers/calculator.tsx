@@ -5,7 +5,7 @@ import { schema } from 'schemas/calculator';
 import { storeProvider } from 'store';
 
 export const CalculatorContainer: FC = () => {
-  const INPUT_TW = 'bg-background w-2/3 text-primary';
+  const INPUT_TW = 'bg-background w-2/3 text-secondary';
 
   const handleCalculate = storeProvider(state => state.calculateResult);
 
@@ -23,25 +23,27 @@ export const CalculatorContainer: FC = () => {
       const BASE_VALUE = values.cost + values.expenses;
 
       handleCalculate(BASE_VALUE * PROFIT_PERCENT);
-
-      console.log(BASE_VALUE * PROFIT_PERCENT);
     }
   });
 
   return (
-    <div className="bg-background h-screen w-screen flex flex-col items-center justify-center text-primary">
-      <h1>Informe o seu custo, despesa e o quanto você deseja lucrar.</h1>
-      <strong>
+    <div className="bg-primary h-screen w-screen flex flex-col items-center justify-center text-secondary text-center">
+      <h1 className="[max-700]: w-5/6">
+        Informe o seu custo, despesa e o quanto você deseja lucrar.
+      </h1>
+      <strong className="[max-700]:w-5/6">
         Se tiver dúvidas do que é custo, depesa e margem de lucro, leia nosso
         tutorial.
       </strong>
       <DefaultButton text="Aprenda agora" path="/guide" />
 
       <form
-        className="flex flex-col justify-center gap-1 mt-10 bg-third w-72 max-h-full h-2/5 items-center sm:h-screen"
+        className="bg-secondary flex flex-col justify-center gap-1 mt-10 w-72 max-h-full h-2/5 items-center w-72 [max-400]:"
         onSubmit={formik.handleSubmit}
       >
-        <label htmlFor="cost">Custo:</label>
+        <label htmlFor="cost" className="text-primary">
+          Custo:
+        </label>
         <input
           name="cost"
           type="number"
@@ -50,7 +52,9 @@ export const CalculatorContainer: FC = () => {
           onChange={formik.handleChange}
         />
 
-        <label htmlFor="expenses">Despesas:</label>
+        <label htmlFor="expenses" className="text-primary">
+          Despesas:
+        </label>
         <input
           name="expenses"
           type="number"
@@ -59,7 +63,9 @@ export const CalculatorContainer: FC = () => {
           onChange={formik.handleChange}
         />
 
-        <label htmlFor="profit">Margem de lucro:</label>
+        <label htmlFor="profit" className="text-primary">
+          Margem de lucro em %:
+        </label>
         <input
           name="profit"
           type="number"
@@ -74,7 +80,7 @@ export const CalculatorContainer: FC = () => {
         >
           Calcular
         </button>
-        <div>Resultado: {result.toFixed(2)}</div>
+        <div className="text-primary">Resultado: {result.toFixed(2)}</div>
       </form>
     </div>
   );

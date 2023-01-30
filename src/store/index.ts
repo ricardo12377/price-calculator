@@ -1,13 +1,14 @@
 import create from 'zustand';
 
-export interface StateProps {
-  result: number;
-  calculateResult: (value: number) => void;
-}
+import { StateProps, User } from './props';
 
 const storeProvider = create<StateProps>(set => ({
   result: 0,
-  calculateResult: (value: number) => set(() => ({ result: value }))
+  user: {} as User,
+  token: '',
+  calculateResult: (value: number) => set(() => ({ result: value })),
+  login: ({ user, token }: { user: User; token: string }) =>
+    set(() => ({ user: user, token: token }))
 }));
 
 export { storeProvider };

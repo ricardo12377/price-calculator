@@ -11,10 +11,8 @@ module.exports = {
       formHeight: '1000px'
     },
     colors: {
-      primary: 'rgb(157 23 77)',
-      secondary: 'rgb(255 228 230)',
-      third: 'white',
-      background: 'rgba(239, 101, 80, 0.40)'
+      primary: 'white',
+      secondary: '#1a1a62'
     }
   },
   plugins: []
