@@ -1,7 +1,27 @@
+import { gql } from '@apollo/client';
 import { HomePage } from 'containers/home';
 import Head from 'next/head';
+import client from 'services/apollo';
+import { useQuery } from '@apollo/client';
+
+const MY_QUERY = gql`
+  query {
+    users {
+      data {
+        id
+        attributes {
+          title
+        }
+      }
+    }
+  }
+`;
 
 export default function Home() {
+  const { data } = useQuery(MY_QUERY);
+
+  console.log(data);
+
   return (
     <>
       <Head>
