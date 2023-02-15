@@ -15,7 +15,7 @@ export const InputField: FC<InputT> = ({
       type={type}
       className={`${
         error ? 'border-red-500' : 'border-primary'
-      } w-72 h-24 rounded-lx`}
+      } rounded-lx w-2/5 h-8`}
       placeholder={placeholder}
       value={value}
       onChange={onChange}
